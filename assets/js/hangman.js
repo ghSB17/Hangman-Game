@@ -13,41 +13,38 @@ var vArrInput=[];
 var vArrGuess=[];
 var newWord = true;
 var vInputKeyCode;
-var vInputWord="";
+// var vInputWord="";
 
-function toUpCase( strWord ) {
-    var strUC = strWord.charAt(0).toUpperCase();
-    strWord = strUC + strWord.substring(1, strWord.length);
-    for( var i=1; i<strWord.Length; i++ ) {
-        if( strWord[i]==' ') {
-            str
+function toUC ( str ) {
+    if( typeof(str) == 'string' ) {
+        str = str.charAt(0).toUpperCase() + str.substring(1, str.length);
+        for( var i=1; i<str.length; i++)
+        if(str[i]==' ') {
+        str = str.substring(0,i) + ' ' 
+                + str.charAt(i+1).toUpperCase()
+                + str.substring(i+2, str.length);
         }
+    } else {
+        str[0]=str[0].toUpperCase();
+        for( var i=0; i<str.length; i++) 
+            if( str[i]===' ')
+             str[i+1] = str[i+1].toUpperCase();
     }
 
-
+    return str;
 }
 
 
 function checkWord() {
-    vInputWord =vArrInput.join();
-    console.log("97) here" + vInputWord);
-    console.log("98): "+ vArrInput.join());
-    console.log("99): "+vCountry.toLowerCase());
-    vInputWord = vInputWord.replace(/,/g, ' ');
-    console.log("100): "+vInputWord);
-    if( vArrInput.join().replace(/,/g,'')===vCountry.toLowerCase() ) {
+    
+    if( vArrInput.join().replace(/,/g,'').toLowerCase() === vCountry.toLowerCase() ) {
         vWins++;
-        vResult="You are Winner!" + arrCountries[vRandomNum];
-        // vGuessesLeft=10;
+        vResult="You are a Winner!  ";
         newWord=true; 
-        console.log("103)word matched "+ vWins)
     } else if( vGuessesLeft===0) {
         vLoss++;
-        vResult="You Lost!" +"\n"+ "Word: "+vCountry;
-        // vGuessesLeft=10;
+        vResult="You Lost!" +"\n"+ "Word: "+ toUC(vCountry);
         newWord=true; 
-        console.log("No match");
-        console.log("104) No Match and no guessesleft");
     }
 }
 
@@ -56,19 +53,13 @@ document.onkeyup = function(event) { functionHangMan(event) } ;
 
 function functionHangMan( event ) {
     var spanInput = document.getElementById("idInput");
-    var spanGuess = document.getElementById("idGuess");
+    var spanGuess = document.getElementById("idUserGuess");
     var spanGuessesLeft = document.getElementById("idGuessesLeft");
     var spanWins = document.getElementById("idWins");
     var spanLoses = document.getElementById("idLoses");
     var spanResult = document.getElementById("idResult");
-   // alert("here");
-    console.log(spanInput.innerText);
-    console.log(newWord);
     vInput = event.key.toLowerCase();
-    vInputKeyCode = event.keyCode;1
-    console.log("38)input char keycode: "+ vInputKeyCode);
-    console.log( "39)check match: " + String.fromCharCode(vInputKeyCode));
-    console.log( "40)check match2: " + String.fromCharCode(vInputKeyCode).match(/[a-zA-Z]/));
+    vInputKeyCode = event.keyCode;
     if( newWord === true ) {
         newWord = false;
         vGuessesLeft=10;
@@ -77,11 +68,7 @@ function functionHangMan( event ) {
         vArrInput.length=0;
         vArrCountry.length=0;
         vRandomNum = Math.floor(Math.random()*196);
-
-        console.log("49): "+arrCountries[vRandomNum]);
         vCountry = arrCountries[vRandomNum].toLowerCase();
-        // vCountry=vCountry.toLowerCase();
-        console.log("52): "+vCountry);
         vArrCountry = vCountry.split('');
         for( var i=0; i<vArrCountry.length; i++) {
             if( vArrCountry[i] != " ")
@@ -89,44 +76,27 @@ function functionHangMan( event ) {
             else
                 vArrInput.push(" ");
         }
-        console.log("60): "+vArrInput);
     }
-    console.log("62)input char:"+vInput);
     if( String.fromCharCode(vInputKeyCode).match(/[a-zA-Z]/) !=null  && vArrGuess.indexOf(vInput) === -1) {
-        console.log("here 2nd part");
         vArrGuess.push(vInput);
-        console.log("66): "+ vArrGuess.join());
         if ( vArrCountry.indexOf(vInput, 0) === -1)
                 vGuessesLeft--;
-        console.log("69): "+vGuessesLeft);
         if( vGuessesLeft != 0 ){
             var pos = -1;
             do {
                 pos=vArrCountry.indexOf(vInput, pos+1);
                 if( pos!= -1)
-
                     vArrInput[pos] = vInput;
-                    console.log("77)I: "+i+"varrinput: "+vArrInput.join());
             } while( pos != -1);    
         } 
-        console.log("80): "+vGuessesLeft);
         checkWord(); 
-        
     }
-
-    //vInputWord.replace(/" "/g, ' - ' );
-    console.log("150) vinputword: "+ vInputWord);
-    // alert(vInputWord);
-    spanInput.innerHTML = "<pre>"+ vArrInput.join().replace(/,/g,' ') +"</pre>";
-    // spanInput.innerText = vInputWord.slice(0,vInputWord.indexOf(" ")) 
-    //                         + "  " 
-    //                         + vInputWord.slice(vInputWord.indexOf(" ")+1, vInputWord.length-1 ) ;
+   
+    spanInput.innerHTML = "<pre>"+  toUC(vArrInput).join().replace(/,/g,' ')  +"</pre>";
     spanWins.innerText = vWins;
     spanLoses.innerText = vLoss;
     spanResult.innerText = vResult;
     spanGuessesLeft.innerText= vGuessesLeft;
-    spanGuess.innerText = vArrGuess.join();
+    spanGuess.innerText = vArrGuess.toString().replace(/,/g, ' ,');
 
- 
-    
 }
