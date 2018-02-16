@@ -4,40 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family='Alfa+Slab+One|Ceviche+One|Holtwood+One+SC|Luckiest+Guy'" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script type="text/javascript" src="./assets/js/hangman.js"></script>
-    <title>Document</title>
+    <script src="./assets/js/hangman.js"></script>
+    <title>Hangman Game</title>
+    <style>
+        
+        #imgStyle {
+            /* width: 40%;
+            height: 40%; */
+            float: left;
+            /*z-index: -1; */
+        }
+        #fontH1 {
+            font-family: 'Ceviche One', 'Times New Roman', 'Serif', 'Sans Serif';
+            text-align: center;
+            font-size: 1000%;
+        }
+        .styleContainer {
+        
+            /* margin-left:8%;
+            padding-top:1%;
+            padding-left:30%; 
+            margin-right:0%; */
+        }
+        .fontH3 {
+            font-family: 'Ceviche One','Courier New', Courier, monospace;
+        }
+        .fontContent {
+            font-family: 'Merryweather','Times New Roman', Times, serif;
+            font-weight: bolder;
+        }
+    </style>
 
 </head>
 <body>
+    <div class="header">
+        <div>
+            <img src="./assets/images/hangman.png" alt="Hangman" id="imgStyle" >
+            <h1 id="fontH1"> Hangman Game</h1>
+        </div>
+        <div class="h3 text-center fontH3">
+            Click Any Key to Start / Continue
+        </div>
+    </div>
     
-    <div class="container border border_dark rounded">
-        <p> Your Input: 
-            <span id="idInput"> </span>
-        </p>
-        <p> Guess: 
-            <span id="idGuess"> </span>
-        </p>
-        <p> Number of Guesses Left: 
-            <span id="idGuessesLeft">10</span>
-        </p>
-    </div>
+    <div class="container" >
 
-    <div>
-        <p>
-            Wins:
-            <span id="idWins">0</span>
-            </p>
-        <p>
-            Loses:
-            <span id="idLoses">0</span>
-        </p>
-        <p>
-            <span id="idResult">
-            </span>
-        </p>
-    </div>
+        <div class="row container" style="margin-top:3%">
+            <div class="row container border border_dark rounded 
+                            h4 styleContainer fontContent" >
+                <span id="idInput"> </span> 
+            </div>
+            <div class="row container adjust-content-between" style="padding-left:0%; padding-right:0%">
+                <div class="card col-lg-6 col-md-6 col-sm-12 border 
+                            border_dark h4 styleContainer fontContent"
+                             style="margin-top:3%">
+                    <p> Guessed Letters : <span id="idGuess"> </span> </p>
+                    <p> Number of Guesses Remaining: <span id="idGuessesLeft">10</span> </p>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-none">
+                </div>
+                <div class="card col-lg-5 col-md-5 col-sm-5 border border_dark
+                                 h4 styleContainer fontContent"
+                                 style="margin-top:3%">
+                    <p> Wins: <span id="idWins">0</span> </p>    
 
+                    <p> Loses: <span id="idLoses">0</span> </p>
+
+                    <p> <span id="idResult"></span> </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
