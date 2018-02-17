@@ -13,8 +13,15 @@ var vArrInput=[];
 var vArrGuess=[];
 var newWord = true;
 var vInputKeyCode;
-// var vInputWord="";
+// var spanInput 
+// var spanGuess 
+// var spanGuessesLeft;
+// var spanWins;
+// var spanLoses;
+// var spanResult; 
 
+
+//To display first letter of each word UpperCase
 function toUC ( str ) {
     if( typeof(str) == 'string' ) {
         str = str.charAt(0).toUpperCase() + str.substring(1, str.length);
@@ -24,17 +31,16 @@ function toUC ( str ) {
                 + str.charAt(i+1).toUpperCase()
                 + str.substring(i+2, str.length);
         }
-    } else {
+    } else if ( newWord == false && str[0] != undefined ) {
         str[0]=str[0].toUpperCase();
         for( var i=0; i<str.length; i++) 
             if( str[i]===' ')
              str[i+1] = str[i+1].toUpperCase();
     }
-
     return str;
 }
 
-
+//To check the letters guessed matches the random word picked by the application
 function checkWord() {
     
     if( vArrInput.join().replace(/,/g,'').toLowerCase() === vCountry.toLowerCase() ) {
@@ -49,7 +55,6 @@ function checkWord() {
 }
 
 
-document.onkeyup = function(event) { functionHangMan(event) } ;
 
 function functionHangMan( event ) {
     var spanInput = document.getElementById("idInput");
@@ -57,9 +62,16 @@ function functionHangMan( event ) {
     var spanGuessesLeft = document.getElementById("idGuessesLeft");
     var spanWins = document.getElementById("idWins");
     var spanLoses = document.getElementById("idLoses");
-    var spanResult = document.getElementById("idResult");
-    vInput = event.key.toLowerCase();
-    vInputKeyCode = event.keyCode;
+    var spanResult = document.getElementById("idResult"); 
+
+    if( event.key != undefined )   {
+        vInput = event.key.toLowerCase();
+        vInputKeyCode = event.keyCode;
+    } else {
+        vInput='';
+        vInputKeyCode=0;
+    }
+    
     if( newWord === true ) {
         newWord = false;
         vGuessesLeft=10;
@@ -91,7 +103,6 @@ function functionHangMan( event ) {
         } 
         checkWord(); 
     }
-   
     spanInput.innerHTML = "<pre>"+  toUC(vArrInput).join().replace(/,/g,' ')  +"</pre>";
     spanWins.innerText = vWins;
     spanLoses.innerText = vLoss;
@@ -100,3 +111,17 @@ function functionHangMan( event ) {
     spanGuess.innerText = vArrGuess.toString().replace(/,/g, ' ,');
 
 }
+
+function functionReset(event) {
+    
+    console.log(event.target.nodeName);
+    console.log(event.target.key);
+    newWord = true;
+    vWins = 0;
+    vLoss = 0;
+    functionHangMan(event.target);
+}
+
+
+document.onkeyup = function(event) { functionHangMan(event) } ;
+

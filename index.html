@@ -22,15 +22,18 @@
             text-align: center;
             font-size: 1000%;
         }
-        .styleContainer {
+        /* .styleContainer {
         
-            /* margin-left:8%;
+            margin-left:8%;
             padding-top:1%;
             padding-left:30%; 
-            margin-right:0%; */
-        }
+            margin-right:0%; 
+        } */
         .fontH3 {
             font-family: 'Roboto','Courier New', Courier, monospace;
+        }
+        .colorH3 {
+            color: #DAA520;
         }
         .fontContent {
             font-family: 'Merryweather','Times New Roman', Times, serif;
@@ -48,18 +51,19 @@
             <!-- <img src="./assets/images/hangman.png" alt="Hangman" id="imgStyle" > -->
             <h1 id="fontH1"> Hangman Game</h1>
         </div>
-        <div class="col h3 text-center fontH3 text-white">
+        <div class="col h3 text-center fontH3 colorH3">
             Click Any Key to Start / Continue
         </div>
     </div>
     
-    <div class="container" >
+    <div class="container" style="margin-bottom:10%" >
 
         <div class="row container" style="margin-top:3%">
             <div class="row container border border_dark rounded 
                             h3 styleContainer fontContent" style="margin-top:5%" >
                 <span id="idInput"> - - - - - - - </span> 
             </div>
+
             <div class="row container adjust-content-between" style="padding-left:0%; padding-right:0%">
                 <div class="card col-lg-6 col-md-6 col-sm-12 border 
                             border_dark h4 styleContainer fontContent"
@@ -79,6 +83,14 @@
                     <p> <span id="idResult"></span> </p>
                 </div>
             </div>
+
+            <!-- <div class="d-flex flex-wrap align-content-center"> -->
+                    <!-- onclick="functionReset()" -->
+                <button type="button" class="btn btn-lg btn-danger rounded" id="btnReset" onclick="functionReset(event)">
+                    Reset
+                </button>
+            <!-- </div> -->
+        
         </div>
     </div>
 
