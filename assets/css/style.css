@@ -1,0 +1,48 @@
+
+        .styleFluid {
+            margin-top: 0%;
+            padding-top: 0%;
+            background: linear-gradient(to bottom right, #0000FF, #1E90FF, #EEE8AA,#CFB53B );  
+        }
+        .pb2 {
+            padding-bottom: 2%;
+        }
+        .mb2 {
+            margin-bottom: 2%;
+        }
+        .mt5 {
+            margin-top: 5%;
+        }
+        .mr5 {
+            margin-right: 5%;
+        }
+        .ml5 {
+            margin-left: 5%;
+        }
+        .styleContainer {
+            padding-top:3%
+        }
+        #fontH1 {
+            font-family: 'Ceviche One', 'Times New Roman', 'Serif', 'Sans Serif';
+            text-align: center;
+            font-size: 1000%;
+        }
+        .fontH3 {
+            font-family: 'Roboto','Courier New', Courier, monospace;
+        }
+        .colorH3 {
+            color: #DAA520;
+        }
+        .fontContent {
+            font-family: 'Merryweather','Times New Roman', Times, serif;
+            font-weight: bolder;
+        }
+        .styleHeader {
+            display: inline-table;
+            width: 100%;
+            background: linear-gradient(to bottom right, #DAA520, #DAA520, #00008B, #0000CD); 
+        }
+        .bgColor{
+            background-color: darkgoldenrod;
+            font-weight: bold;
+        }
