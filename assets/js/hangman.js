@@ -13,12 +13,6 @@ var vArrInput=[];
 var vArrGuess=[];
 var newWord = true;
 var vInputKeyCode;
-// var spanInput 
-// var spanGuess 
-// var spanGuessesLeft;
-// var spanWins;
-// var spanLoses;
-// var spanResult; 
 
 
 //To display first letter of each word UpperCase
@@ -79,7 +73,7 @@ function functionHangMan( event ) {
         vArrGuess.length=0;
         vArrInput.length=0;
         vArrCountry.length=0;
-        vRandomNum = Math.floor(Math.random()*196);
+        vRandomNum = Math.floor(Math.random()*arrCountries.length);
         vCountry = arrCountries[vRandomNum].toLowerCase();
         vArrCountry = vCountry.split('');
         for( var i=0; i<vArrCountry.length; i++) {
