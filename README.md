@@ -20,9 +20,6 @@ Instructions to Play the Hangman Game
 
 		The 'Reset' button resets the current scores and the word.
 
-File List
----------
-
 
 Design/Logic
 ------------
