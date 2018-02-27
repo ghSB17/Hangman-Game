@@ -119,3 +119,4 @@ function functionReset(event) {
 
 document.onkeyup = function(event) { functionHangMan(event) } ;
 
+console.log(".............."+arrCountries.length);

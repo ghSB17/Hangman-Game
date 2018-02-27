@@ -7,6 +7,9 @@
         .pb2 {
             padding-bottom: 2%;
         }
+        body {
+            display: grid;
+        }
         .mb2 {
             margin-bottom: 2%;
         }
