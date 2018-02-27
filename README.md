@@ -1,4 +1,4 @@
-# Hangman-Game
+#Hangman-Game
 
 ##About
  	Hangman is a game where the player guesses a word within a restricted number of letter guesses. 
