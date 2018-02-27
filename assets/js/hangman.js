@@ -21,7 +21,7 @@ function toUC ( str ) {
         str = str.charAt(0).toUpperCase() + str.substring(1, str.length);
         for( var i=1; i<str.length; i++)
         if(str[i]==' ') {
-        str = str.substring(0,i) + ' ' 
+            str = str.substring(0,i) + ' ' 
                 + str.charAt(i+1).toUpperCase()
                 + str.substring(i+2, str.length);
         }
@@ -118,5 +118,3 @@ function functionReset(event) {
 
 
 document.onkeyup = function(event) { functionHangMan(event) } ;
-
-console.log(".............."+arrCountries.length);
